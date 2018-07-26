@@ -1,7 +1,7 @@
 {
-  "name": "easy-peasy-bot",
+  "name": "plus-plus-clone",
   "version": "1.0.0",
-  "description": "The awesomest bot evar.",
+  "description": "A simple clone of PlusPlus",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,24 +9,32 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DEGoodmanWilson/easy-peasy-bot-app.git"
+    "url": "git+https://github.com/ahmed-musallam/plus-plus-clone.git"
   },
   "keywords": [
     "slack",
     "bot"
   ],
-  "author": "D.E. Goodman-Wilson",
+  "author": "Ahmed Musallam",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DEGoodmanWilson/easy-peasy-bot-app/issues"
+    "url": "https://github.com/ahmed-musallam/plus-plus-clone/issues"
   },
-  "homepage": "https://github.com/DEGoodmanWilson/easy-peasy-bot-app#readme",
+  "homepage": "https://github.com/ahmed-musallam/plus-plus-clone#readme",
   "engines": {
-    "node": "5.1.1"
+    "node": ">=8.11.1"
   },
   "dependencies": {
-    "botkit": "0.2.2",
-    "botkit-storage-mongo": "^1.0.2",
-    "mongodb": "^1.4.39"
+    "botkit": "0.6.16",
+    "botkit-storage-mongo": "^1.0.7",
+    "eslint": "^5.2.0",
+    "mongodb": "^3.1.1"
+  },
+  "devDependencies": {
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
   }
 }
