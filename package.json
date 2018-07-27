@@ -1,7 +1,7 @@
 {
-  "name": "plus-plus-clone",
+  "name": "shuriken",
   "version": "1.0.0",
-  "description": "A simple clone of PlusPlus",
+  "description": "A chatbot that gives out ninja stars!",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahmed-musallam/plus-plus-clone.git"
+    "url": "git+https://github.com/ahmed-musallam/shuriken.git"
   },
   "keywords": [
     "slack",
@@ -18,9 +18,9 @@
   "author": "Ahmed Musallam",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ahmed-musallam/plus-plus-clone/issues"
+    "url": "https://github.com/ahmed-musallam/shuriken/issues"
   },
-  "homepage": "https://github.com/ahmed-musallam/plus-plus-clone#readme",
+  "homepage": "https://github.com/ahmed-musallam/shuriken#readme",
   "engines": {
     "node": ">=8.11.1"
   },
