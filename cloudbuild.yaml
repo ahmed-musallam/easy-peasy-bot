@@ -1,0 +1,10 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy']
+  secretEnv: ['TOKEN']
+timeout: '1600s'
+
+secrets:
+- kmsKeyName: projects/shuriken-bot/locations/global/keyRings/shuriken-keyring/cryptoKeys/shuriken-key
+  secretEnv:
+    TOKEN: CiQA3u6FR0/HZ1j3GD1TpQMo0aFJQQtbKyc424z/xQ9WAPpGqL4SYAA87V3cxQd96DWqDNm+BDXVwZJovEG/rifLlDFTgJzVqlML+jRugm5FuCiVM3ym4wchBqU5N/AKVObzmLvEGc+InMMMYbr36N9MCPlHW7ywEM4jbpLTQjzW6fOD1BTafg==

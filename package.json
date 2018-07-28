@@ -22,15 +22,14 @@
   },
   "homepage": "https://github.com/ahmed-musallam/shuriken#readme",
   "engines": {
-    "node": ">=8.11.1"
+    "node": "8.x.x"
   },
   "dependencies": {
-    "botkit": "0.6.16",
-    "botkit-storage-mongo": "^1.0.7",
-    "eslint": "^5.2.0",
-    "mongodb": "^3.1.1"
+    "@google-cloud/storage": "^1.7.0",
+    "botkit": "0.6.16"
   },
   "devDependencies": {
+    "eslint": "^5.2.0",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-node": "^7.0.1",

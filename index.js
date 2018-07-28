@@ -22,18 +22,11 @@ function onInstallation (bot, installer) {
  * Get initial config for controller
  */
 function getConfig () {
-  let config
-  if (process.env.MONGOLAB_URI) {
-    var BotkitStorage = require('botkit-storage-mongo')
-    config = {
-      storage: BotkitStorage({ mongoUri: process.env.MONGOLAB_URI })
-    }
-  } else {
-    config = {
-      json_file_store: ((process.env.TOKEN) ? './db_slack_bot_ci/' : './db_slack_bot_a/') // use a different name if an app or CI
-    }
+  // Currently uses filesystem storage, which is adequate for one slack workspace
+  // Botkit has a store integration with mongodb
+  return {
+    json_file_store: ((process.env.TOKEN) ? './db_slack_bot_ci/' : './db_slack_bot_a/') // use a different name if an app or CI
   }
-  return config
 }
 
 /**
@@ -44,7 +37,9 @@ function configureController (config) {
   if (process.env.TOKEN || process.env.SLACK_TOKEN) {
     // Treat this as a custom integration
     var customIntegration = require('./lib/custom_integrations')
-    var token = (process.env.TOKEN) ? process.env.TOKEN : process.env.SLACK_TOKEN
+    const token = (process.env.TOKEN) ? process.env.TOKEN : process.env.SLACK_TOKEN
+    if (token) console.log('Token found, using it!')
+    else console.log('could not fimd token... it will fail...')
     controller = customIntegration.configure(token, config, onInstallation)
   } else if (process.env.CLIENT_ID && process.env.CLIENT_SECRET && process.env.PORT) {
     // Treat this as an app
