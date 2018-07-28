@@ -1,6 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy']
+  env: [''TOKEN=$$TOKEN'']
   secretEnv: ['TOKEN']
 timeout: '1600s'
 
