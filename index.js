@@ -72,5 +72,6 @@ controller.on('bot_channel_join', function (bot, message) {
 controller.hears('hello', 'direct_message', function (bot, message) {
   bot.reply(message, 'Hello!')
 })
+
 const Shuriken = require('./lib/shuriken')
 const shuriken = new Shuriken(controller)
