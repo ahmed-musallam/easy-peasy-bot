@@ -34,12 +34,18 @@ function getConfig () {
  */
 function configureController (config) {
   var controller
-  if (process.env.TOKEN || process.env.SLACK_TOKEN) {
+  const fileToken = require('fs').readFileSync('token.txt')
+  if (process.env.TOKEN || process.env.SLACK_TOKEN || fileToken) {
     // Treat this as a custom integration
     var customIntegration = require('./lib/custom_integrations')
-    const token = (process.env.TOKEN) ? process.env.TOKEN : process.env.SLACK_TOKEN
-    if (token) console.log('Token found, using it!')
-    else console.log('could not fimd token... it will fail...')
+    let token
+    if (process.env.TOKEN || process.env.SLACK_TOKEN) {
+      token = (process.env.TOKEN) ? process.env.TOKEN : process.env.SLACK_TOKEN
+    }
+    else {
+      token = fileToken
+    }
+    console.log('Token found, using it!')
     controller = customIntegration.configure(token, config, onInstallation)
   } else if (process.env.CLIENT_ID && process.env.CLIENT_SECRET && process.env.PORT) {
     // Treat this as an app

@@ -1,7 +1,9 @@
 steps:
+- name: 'gcr.io/$PROJECT_ID/npm'
+  args: ['run', 'writetoken', '$$TOKEN']
+  secretEnv: ['TOKEN']
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy']
-  env: ['TOKEN=$$TOKEN']
 timeout: '1600s'
 
 secrets:
