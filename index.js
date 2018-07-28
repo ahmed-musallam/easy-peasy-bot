@@ -1,6 +1,21 @@
 /**
  * A Bot for Slack!
  */
+// [START app]
+const express = require('express')
+
+const app = express()
+
+app.get('/', (req, res) => {
+  res.status(200).send('Hello, world!').end()
+})
+
+// Start the server
+const PORT = process.env.PORT || 8080
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`)
+  console.log('Press Ctrl+C to quit.')
+})
 
 /**
  * Define a function for initiating a conversation on installation
@@ -24,8 +39,10 @@ function onInstallation (bot, installer) {
 function getConfig () {
   // Currently uses filesystem storage, which is adequate for one slack workspace
   // Botkit has a store integration with mongodb
+  const datastoreStorage = require('./lib/GCPDatastore')({projectId: 'shuriken-bot'})
   return {
-    json_file_store: ((process.env.TOKEN) ? './db_slack_bot_ci/' : './db_slack_bot_a/') // use a different name if an app or CI
+    // json_file_store: ((process.env.TOKEN) ? './db_slack_bot_ci/' : './db_slack_bot_a/') // use a different name if an app or CI
+    storage: datastoreStorage
   }
 }
 
@@ -69,14 +86,6 @@ controller.on('rtm_open', function (bot) {
 controller.on('rtm_close', function (bot) {
   console.log('** The RTM api just closed')
   // you may want to attempt to re-open
-})
-
-controller.on('bot_channel_join', function (bot, message) {
-  bot.reply(message, 'Hey, thanks for inviting me!')
-})
-
-controller.hears('hello', 'direct_message', function (bot, message) {
-  bot.reply(message, 'Hello!')
 })
 
 const Shuriken = require('./lib/shuriken')

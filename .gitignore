@@ -31,3 +31,5 @@ node_modules
 db_slack_bot_ci/users/
 
 \.DS_Store
+
+token\.txt

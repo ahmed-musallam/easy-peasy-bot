@@ -26,7 +26,7 @@
     "node": "8.x.x"
   },
   "dependencies": {
-    "@google-cloud/storage": "^1.7.0",
+    "@google-cloud/datastore": "^1.4.1",
     "botkit": "0.6.16"
   },
   "devDependencies": {
