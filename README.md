@@ -1,3 +1,5 @@
+> IMPORTANT: this is a test project I'm not using anymore, it is here for my reference.
+
 # easy-peasy-bot
 
 ## The story of a (Slack)bot
